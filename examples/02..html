@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>연습문제</title>
+</head>
+<body>
+<!--<script>
+    document.write(true && false && true || true);
+    document.write(true || false && true && true);
+    document.write(true && false) || (true && false) || (false && !false);
+    document.write((2 < 3) || (5 >2) && !(4 == 4) || 9 != 4);
+    document.write(6 == 9 || 5 < 6 && 8 < 4 || 4 >3)
+</script>-->
+    <h2>이름 ,몸무게 , 나이 , 출력하기</h2>
+<script>
+    //변수 선언
+    let name = prompt('이름');
+    let weight = prompt('몸무게');
+    let age = prompt('나이');
+
+    //처리
+
+    //출력
+    /*document.write("이름 : ", name, "<br>");
+    document.write("몸무게 : ", weight, "<br>");
+    document.write("나이 : ", age, "<br>");*/
+
+    let result = `이름 = ${name} <br>`;
+        result += `몸무게 = ${weight} <br>`;
+        result += `나이 = ${age} <br>`;
+
+    document.write(result);
+</script>
+
+    <h2> 생년월일로 나이계산하기</h2>
+    <script>
+        //변수 선언
+        let year = 2023; //현재년
+        let month = 1;  //현재월
+        let day = 20;   //현재일
+
+        let byear = Number(prompt("생년year은?"));
+        let bmonth = Number(prompt("생월month은?"));
+        let bday = Number(prompt("생일day은?"));
+
+        //let age = 0;
+
+        //처리 - 나이계산 ( 2023, 2002 )
+        //만나이 = 현재년도 - 출생년도 - 1;
+        //단, 생일이 지났으면 만나이 + 1
+        age = year - byear;
+        age = (month > bmonth && day > bday) ? age : age - 1 ;
+
+            //결과출력
+        result = `현재년월일 : ${year}년 ${month}월 ${day}일<br>`;
+             result += `현재년월일 : ${byear}년 ${bmonth}월 ${bday}일<br>`;
+                result += '나이 : ';
+
+        document.write(result);
+    </script>
+
+    <h2>구구단</h2>
+    <script>
+        let dan = 7;
+
+        result = `${dan} x 1 = ${dan * 1} <br>`;
+        result += `${dan} x 2 = ${dan * 2} <br>`;
+        result += `${dan} x 3 = ${dan * 3} <br>`;
+        result += `${dan} x 4 = ${dan * 4} <br>`;
+        result += `${dan} x 5 = ${dan * 5} <br>`;
+
+        document.write(result);
+
+    </script>
+
+
+    <h2>시간 계산하기</h2>
+    <script>
+        let daysec = 86400;
+        let hoursec = 3600;
+        let  minsec = 60;
+
+        data1 = 1234567890;
+        data2 = 98765;
+        data3 = 12345;
+        result = `${data1}초는 약${parseInt(data1/daysec)}일이다 <br>`;
+        result += `${data2}초는 약${parseInt(data2/hoursec)}시간이다 <br>`;
+        result += `${data3}초는 약${parseInt(data3/minsec)}분이다 <br>`;
+                                // parseInt() 값을 정수형으로 변환
+         document.write(result);
+    </script>
+
+
+
+
+
+
+<hr>
+<!--<script>
+//11. 이름, 몸무게, 나이를 변수로 선언
+
+    let name = prompt('이름');
+    let weight = prompt('몸무게');
+    let age = prompt('나이');
+
+document.write(`이름 : ${name}<br>  몸무게 :${weight}<br>
+                나이 : ${age}<br> `);
+</script>
+<hr>
+<script>
+    let birthDate = prompt('생년월일');
+    let age1 = 2023 - birthDate
+    document.write(`나이 : ${age1}`);
+</script>-->
+<hr>
+
+<script>
+    //구구단
+     gugu =   7;
+    number = 1;
+    document.write(`구구단 : ${gugu}<br>
+                    ${gugu} * ${number} = ${gugu*number}<br>
+                    ${gugu} * ${++number} = ${gugu*number}<br>
+                    ${gugu} * ${++number} = ${gugu*number}<br>
+                    ${gugu} * ${++number} = ${gugu*number}<br>
+                    ${gugu} * ${++number} = ${gugu*number}<br>
+                    ${gugu} * ${++number} = ${gugu*number}<br>
+                    ${gugu} * ${++number} = ${gugu*number}<br>
+                     ${gugu} * ${++number} = ${gugu*number}<br>
+                    ${gugu} * ${++number} = ${gugu*number}<br>`);
+
+</script>
+
+
+
+
+
+</body>
+</html>
