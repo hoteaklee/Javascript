@@ -20,36 +20,42 @@
     console.log('            |   |');
     console.log('        +---+---+');
     console.log('       |   |    |');
-    console.log('    +---+---+---+       /\\_/\\   ');
-    console.log("   |   |    |   |      ( ' ' ) ");
-    console.log('+---+---+---+---+      (  -  )             <  Juniop ');
-    console.log('|   |   |   |   |      |  |  |             \\ Coder /');
-    console.log('+---+---+---+---+      (__|__)             _____       ');
+    console.log('    +---+---+---+       /\\_/\\               ----- ');
+    console.log("   |   |    |   |      ( ' ' )             /  Hello  \\    ");
+    console.log('+---+---+---+---+      (  -  )             <  Juniop |     ');
+    console.log('|   |   |   |   |      |  |  |             \\ Coder /      ');
+    console.log('+---+---+---+---+      (__|__)                _____           ');
 
 
 </script>
 
 <script>
     let soju = 3000;
-    let chi = 12000;
-    let tota = soju + chi;
+    let chicken = 12000;
+    let sj_qty = 2;
+    let tota = (soju*sj_qty) + chicken;
     let vat = tota * 0.1 ;
     let taxsum = tota -vat;
     let amt = 50000;
     let change = 32000;
     console.log(` [ 음식나라 ]`);
     console.log(`-----------------------`);
-    console.log(`소주     2     ${soju*2}`);
-    console.log(`너나치킨  1    ${chi}`);
+    console.log('소주\t\t',sj_qty,'\t\t',soju*sj_qty);
+    console.log(`너나치킨\t1\t\t${chicken}`);
     console.log(`-----------------------`);
-    console.log(`과세합계       ${taxsum}`);
-    console.log(`부과세         ${vat}`);
+    console.log(`과세합계\t\t\t${taxsum}`);
+    console.log(`부과세\t\t\t\t${vat}`);
     console.log(`-----------------------`);
-    console.log(`총합계         ${tota}`);
-    console.log(`받은금액       ${amt}`);
-    console.log(`잔돈           ${change}`);
+    console.log(`총합계\t\t\t\t${tota}`);
+    console.log(`받은금액\t\t\t${amt}`);
+    console.log(`잔돈\t\t\t\t${change}`);
     console.log(`-----------------------`);
-    console.log(`2014. 07. 07 14:35:24`);
+    console.log(`2014. 07. 07\t 14:35:24`);
+
+</script>
+
+<script>
+
 
 </script>
 </body>
