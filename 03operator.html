@@ -233,13 +233,43 @@
     document.write('편균 : ',avg, '<br>');
     document.write('학점 : ',grd, '<br>');
 */
-
-
-
-
   </script>
 
 
+    <script>
+      //단항연사자를 이용한 묵시적 형변환 예
+      console.log(" : ", +'');
+      console.log("+null : ", +null);
+      console.log("+false : ", +false);
+      console.log("+true : ", +true);
+      console.log("+undefined : ", +undefined);
+      console.log("+[] : ", +[]);
+
+      // ex) 성적 처리프로그램 v2b
+      // 이름 , 국어, 영어, 수학을  초기화시켜서
+      // 총점, 평균, 학점을 계산한 뒤 결과 출력
+      // 단, 학점은 수우미양가 중 하나가 출력되어야 함
+      let name = prompt('이름 : ');
+      let kor = prompt('국어 점수 : ');
+      let eng = prompt('영어 점수 : ');
+      let mat = prompt('수학 점수 : ');
+      // 숫자가 아닌 값을 숫자형으로 묵시적으로 형변환하는 방법은
+      // + 단항연산자를 사용
+      let tot = (+kor) + (+eng) + (+mat) ;
+      let avg = tot / 3;
+      let grd = ( avg >= 90) ? '수':
+              (avg >= 80) ? '우':
+                      (avg >= 70) ? '미':
+                              (avg >= 60) ? '양': '가';
+
+      document.write('<h1>성적처리 v2</h1>')
+      document.write(`이름 : ${name}<br>
+    국어 : ${kor}<br> 영어 : ${eng}<br> 수학 : ${mat}<br>
+    총점 : ${tot}<br> 평균 : ${avg}<br> 학점 : ${grd}<br>`);
+
+
+
+    </script>
 
 
   </body>
