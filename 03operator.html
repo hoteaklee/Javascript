@@ -77,16 +77,97 @@
       작성하는데 사용
     </p>
 
+    <script>
+      x = 1;
+      x = +1;
+      document.write(`x = x + 1 : `, x, `<br>`);
+
+      x = 1;
+      x += 1; // sytactic sugar
+      // 프로그램밍 코드를 좀더 sweet하게
+      // 작성할 수 있도록 도와주는 문법
+      // 더욱 간결하고, 명확한 표현이 가능
+      document.write(`x = x + 1 : `, x, `<br>`);
+    </script>
+    <h2>비교연산자</h2>
+
     <p>
       좌항과 우항의 피연산자를 비교해서 큰지 작은지 같은지 알아보는 연산자
       결과값은 true 나 false로 반환
     </p>
-
     <p>if ~ eles의 sytantic sugar 조건식 ? 참일때의 값 : 거짓일때의 값</p>
 
+    <script>
+      x = 10;
+      y = 5;
+      document.write(`10 > 5 : `, x > y, `<br>`);
+      document.write(`10 == 5 : `, x == y, `<br>`); // 값이 동일여부 비교
+      document.write(`10 === 5 : `, x === y, `<br>`); //값,타입의 동일여부
+
+      y = 10;
+      document.write(`10 == 5 : `, x == y, `<br>`);
+      document.write(`10 === 10 : `, x === y, `<br>`);
+
+      y = 10n;
+      document.write(`10 == 10n : `, x == y, `<br>`);
+      document.write(`10 === 10n : `, x === y, `<br>`);
+
+      y = "10";
+      document.write("10 == '10' : ", x == y, `<br>`);
+      //자바스크립트에서  == 연사자로 비교시
+      // 변수들의 자료형을 일키 시키는 암묵적 형변환 발생
+      // 비교연산자는 경우에 따라 수많은 부작용 양산 : === 추전!!
+      document.write("10 === '10' : ", x === y, `<br>`);
+    </script>
+
+    <h3>삼항연산자</h3>
+    <p>조건문 if ~ eles의 sytantic sugar</p>
+    <p>변수 = 조건식 ? 참일때의 값 : 거짓일때의</p>
+    <script>
+      //편균점수가 60점이상이면 '합격',
+      //아니면  '불합격'이라 출력
+      let jumsu = 45.5;
+
+      let result = jumsu >= 60 ? `합격` : `불합격`;
+
+      document.write(`평균점수가 ${jumsu}라면,
+                결과는 ${result} 입니다. <br>`);
+    </script>
+
+    <h2>논리연산자</h2>
     <p>
       boolean 표현식에 대한 논리합OR(||) 또는 논리곱AND(&&) 또는 부정NOT(!)
       연산을 수행하는 기호
     </p>
+
+    <script>
+      document.write("true OR false : ", true || false, "<br>");
+      document.write("true AND false : ", true && false, "<br>");
+      document.write("1(true) AND 0(false) : ", 1 && 0, "<br>");
+    </script>
+
+  <script>
+    // FF - F, FT - T, TF - T, TT - T
+    // val = val1 || val2 || val3 의 경우
+    // 연산자 OR는 첫번째 truthy를 출력함  - short circuit evalute
+    document.write("1 || O : ", 1 || 0, "<br>");
+    document.write("null || O : ", null || 1, "<br>");
+    document.write("undefined || O : ", undefined || 1, "<br>");
+    document.write("null || 1 || undefined : ", null || 1 || undefined , "<br>");
+
+    // FF - F, FT - F, TF - F, TT - T
+    // val = val1 && val2 && val3 의 경우
+    // 연산자 AND는 첫번째 falsy를 출력함
+    document.write("1 && O : ", 1 && 0, "<br>");
+    document.write("null && O : ", null && 1, "<br>");
+    document.write("undefined && O : ", undefined && 1, "<br>");
+    document.write("null && 1 && undefined : ", null && 1 && undefined , "<br>");
+    document.write("null && 1 && 2 : ", null && 1 && 2 , "<br>");
+          // & 한개 쓸떄랑  다르다 (0,1 만 나옴)
+
+    document.write("null | 1 | undefined : ", null | 1 | undefined , "<br>");
+    document.write("null && 1 & undefined : ", null & 1 & undefined , "<br>");
+
+  </script>
   </body>
 </html>
