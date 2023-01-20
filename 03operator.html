@@ -12,6 +12,7 @@
       의미 표현식은 평가evaluate(표현식이 실행되어 결과값 생성)되어 하나의 값을
       만듦
     </p>
+<!--
 
     <script>
       10; //리터럴 표현식
@@ -19,6 +20,7 @@
       10 + 20; //연사자 표현식
       Date(); //함수 표현식
     </script>
+-->
 
     <h2>연사자</h2>
 
@@ -169,5 +171,75 @@
     document.write("null && 1 & undefined : ", null & 1 & undefined , "<br>");
 
   </script>
+
+    <h2>변수의 자료형 알아보기</h2>
+  <p>typeof 연사자를 이용하면 변수나 값의 자료형을 출력함</p>
+    <script>
+  document.write('숫자 10의 자료형 : ', typeof (10), '<br>');
+  document.write('문자 abc의 자료형 : ', typeof ('abc'), '<br>');
+  document.write('문자 10n의 자료형 : ', typeof (10n), '<br>');
+  document.write('undefined의 자료형 : ', typeof (undefined), '<br>');
+
+</script>
+
+  <h2>자료형 변환</h2>
+  <p>함수와 연사자에 전달되는 값은 표현식에 적합하게
+    적절한 자료형으로 변환됨(무시적 형변환)</p>
+  <p>하지만, 상황에 따라 의도를 갖고 원하는 자료형으로
+    직접 변환해야 하는 경우도 있음(명시적 형변환)</p>
+
+  <p>어떤값을 숫자형으로 변환하고 싶다면 Number() 사용</p>
+  <p>어떤값을 문자형으로 변환하고 싶다면 String() 사용</p>
+  <p>어떤값을 불리언형으로 변환하고 싶다면 Boolean() 사용</p>
+<script>
+/*
+  // 나이 계산 v1 : 현재년도 - 생년년도
+  let bithyear = prompt('생년연도는 ?');  //2023 - '입력값'
+  let age = 2023 - bithyear
+  document.write('생년년도 : ', bithyear, '<br>');
+  document.write('당신의 나이 : ',age , '<br>');
+*/
+
+</script>
+
+  <script>
+    // ex) 성적 처리프로그램 v1
+    // 이름 , 국어, 영어, 수학을  초기화시켜서
+    // 총점, 평균, 학점을 계산한 뒤 결과 출력
+    // 단, 학점은 수우미양가 중 하나가 출력되어야 함
+     let name = prompt('이름 : ');
+    let kor = Number(prompt('국어 점수 : '));
+    let eng =  Number(prompt('영어 점수 : '));
+    let mat =  Number(prompt('수학 점수 : '));
+        //
+    let tot = kor + eng + mat ;
+    let avg = tot / 3;
+    let grd = ( avg >= 90) ? '수':
+          (avg >= 80) ? '우':
+          (avg >= 70) ? '미':
+          (avg >= 60) ? '양': '가';
+
+    document.write('<h1>성적처리 v2</h1>')
+    document.write(`이름 : ${name}<br>
+    국어 : ${kor}<br> 영어 : ${eng}<br> 수학 : ${mat}<br>
+    총점 : ${tot}<br> 평균 : ${avg}<br> 학점 : ${grd}<br>`);
+
+    /*
+    document.write('국어 : ',kor, '<br>');
+    document.write('영어 : ',eng, '<br>');
+    document.write('수학 : ',mat, '<br>');
+    document.write('총점 : ',tot, '<br>');
+    document.write('편균 : ',avg, '<br>');
+    document.write('학점 : ',grd, '<br>');
+*/
+
+
+
+
+  </script>
+
+
+
+
   </body>
 </html>
