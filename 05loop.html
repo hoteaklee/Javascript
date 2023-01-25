@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 반복문</title>
+</head>
+<body>
+  <h1>자바스크립트 반복문</h1>
+  <h2>개요</h2>
+  <p>조건을 만족하는 동안 코드를 반복적으로 수행하는 문장</p>
+  <p>자바스크립트에서는 기본적으로
+    3가지 반복문(for, while, do-while)이 지원되고,
+    그외 for-loop, for-in과 ES6에서 추가된 for-of등이 있음</p>
+
+  <h2>for</h2>
+  <p> 조건식이 참 일 동안 코드블록을 반복적으로 실행</p>
+  <p>for(초기식; 판별식; 증감식 { </p>
+  <p>        반복구문</p>
+  <p> } </p>
+
+<script>
+  // 1 ~10 까지의 정수 출력 v1
+  document.write('1');
+  document.write('2');
+  document.write('3');
+  document.write('4');
+  document.write('5');
+  document.write('6');
+  document.write('7');
+  document.write('8');
+  document.write('9');
+  document.write('10<br>');
+</script>
+
+  <script>
+    // 1 ~10 까지의 정수 출력 v2
+   for (let i = 1; i <= 10; ++i ){
+     document.write(i,' ');
+   }
+  </script>
+  <hr>
+
+  <script>
+    // 1 ~100 까지의 정수 중 짝수 출력
+    let result = '';
+    for (let i = 1; i <= 100; ++i ) {
+      if (i % 2 == 0) { //짝수라면
+        result += i + ' ';
+      }
+    }
+    document.write(result,'<br> ');
+  </script>
+
+  <script>
+    // 1 ~100 까지의 정수 중 짝수 출력 v2
+    result = '';
+    for (let i = 2; i <= 100; i += 2 ) { //50번만 반복한단.위에껀 100번 반복문
+        result += i + ' ';
+    }
+    document.write(result,'<br> ');
+  </script>
+  <hr>
+  <script>
+    // 1 ~ 100 까지의 정수의 총합 출력
+    sum = 0;
+    for (let i = 1; i <= 100; ++i ){
+      sum += i ; // sum = sum + i 같은 뜻
+    }
+    document.write('1~100의 총합  ', sum,'<br> ');
+  </script>
+
+  <script>
+    // 1 ~ 100 까지의 정수의 총합 출력 v2 - 가우스 덧셈
+    // (시작숫자 + 종료숫자 x (종료숫자 - 시작숫자 + 1)) / 2
+
+    let  stnum = 1;
+   let  endnum = 100;
+
+  sum = ((1 + 100) * (100 - 1 +1))/2;
+
+  document.write('1~100의 총합 : ', sum, '<br>');
+  </script>
+
+<script>
+  // 10 ~ 1 까지의 정수 출력
+  result = '';
+  for (let i = 10; i >= 1; --i ){
+    result += i + ' ';
+  }
+  document.write(result, '<br>');
+</script>
+
+
+
+</body>
+</html>
