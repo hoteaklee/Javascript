@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 함수</title>
+</head>
+<body>
+ <h1>자바스크립트 함수</h1>
+<h2>개요</h2>
+<p>특정 작업(코드블록)을 여러번 반복해야 하는 경우
+    해당 작업을 재사용 가능한 구조로 만들때 사용</p>
+<p>즉, 어떤 작업을 수행하지 위해
+    필요한 코드들의 집합을 의미하고,
+    이것들을 재사용하기 위해 모듈형태로 작성한 것</p>
+
+  <p>function 함수명(매개변수들,....) {</p>
+  <p>      코드들</p>
+  <p> }  </p>
+
+<script>
+  // 인삿말 v1
+  // 함수 정의
+  function sayHello() {
+    document.write('Hello, World!! <br>');
+  }
+
+  //함수 호출 : 함수명
+  sayHello()
+</script>
+
+ <script>
+   // 인삿말 v2
+   function sayHello2(msg) {
+     //let msg = 'World';
+     document.write(`Hello, ${msg}!! <br>`);
+   }
+   //함수 호출 : 함수명 (인자)
+   sayHello2('Java')
+   sayHello2('HTML')
+   sayHello2('CSS')
+ </script>
+
+ <script>
+   // 인삿말 v3
+   function sayHello3(msg) {
+     return `Hello, ${msg}!! <br>`;
+   }
+   document.write('👍',sayHello3('JavaScript'));
+   document.write('💕',sayHello3('Node.js'));
+   document.write('🌹',sayHello3('react'));
+ </script>
+
+<script>
+  // 년도를 입력하면 윤년여부를 계산해서 출력
+  // 윤년여부를 계산하는 함수 : computLeapYear
+
+  function computLeapYear(year) {
+    if ((year % 4) == 0 && (year % 100) !== 0
+            || (year % 400) == 0)
+           return  year,' - 윤년입니다.<br>';
+   else return  year,' - 평년입니다.<br>';
+  }
+  document.write(computLeapYear(2023));
+</script>
+
+<script>
+  // 층 수를 입력받아
+  // 별 * 피라미드 출력 : showStarPyramid
+  function showStarPyamid(hight){
+  for (let j = 1; j <=hight; ++j) { //층 반복문
+    for (let i = 1; i <= j; ++i){ //별 반복문
+       document.write(`* `);}
+        document.write( '<br>');}
+  }
+  showStarPyamid(10);
+
+</script>
+
+<script>
+  // 시분초를 입력받아
+  // 오전, 오후 구분하여 출력 : showAMPM
+function showAMPM(time){
+    if (time <'12:00:00') {
+        document.write('오전입니다.<br>')    };
+    if (time >'12:00:00') {
+        document.write('오후입니다.<br>')    };
+}
+showAMPM('15:20:30');
+
+
+ </script>
+
+<script>
+  //국어, 영어, 수학을 입력하면
+  // 학점을 출력하는 함수 : computeSungJuk
+  function computeSungJuk(){
+
+
+  }
+
+
+</script>
+
+
+</body>
+</html>
