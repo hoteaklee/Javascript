@@ -90,6 +90,120 @@
   document.write(result, '<br>');
 </script>
 
+  <script>
+    // 구구단
+    dan = 2;
+    for (let i = 1; i <= 9; ++i ){
+      document.write(`${dan} x ${i} =`  ,i * dan, ' <br>');
+    }
+  </script>
+
+  <h2>무한 반복문 -for</h2>
+  <p>for문의 경우 초기식 판별식 증감식을 비워두면 반복을 끊임없이
+    실행하는 무한 반복문이 됨</p>
+  <script>
+    for (let i =1; i<= 10; ++i) { //if안의 소괄호 안을 ( ; ;)이렇게 쓰면 무한반복할때는 그렇지만 실행이 안된다 계속돈다
+      document.write(`hello world <br>`);
+    }
+  </script>
+
+  <h2>중첩반복문 -for</h2>
+  <p>2개 이상의 for 문을 겹쳐 사용하는 반복문
+    복잡ㅎ나 작업을 반족 실행할때 유용하게 사용</p>
+
+  <script>
+    //별*5개씩 5줄 출력
+
+    document.write(`***** <br>`);
+    document.write(`***** <br>`);
+    document.write(`***** <br>`);
+    document.write(`***** <br>`);
+    document.write(`***** <br>`);
+
+
+    for ( let i =1 ; i <=5 ; ++i) {
+      document.write(`***** <br>`);
+    }
+  </script>
+
+  <script>
+    //10층 짜리 별* 피라미드 출력
+    for (let j = 1; j <=10; ++j) { //층 반복문
+      for (let i = 1; i <= j; ++i) { //별 반복문
+        document.write(`* `);
+      }
+      document.write(`<br> `);
+    }
+  </script>
+
+  <script>
+    //10층 짜리 별* 역피라미드 출력
+    for (let j = 10; j >=1; --j) { //층 반복문
+      for (let i = 1; i <= j; ++i) { //별 반복문
+        document.write(`* `);
+      }
+      document.write(`<br> `);
+    }
+  </script>
+
+<script>
+  // 10층짜리 별* 역 피라미드 출력
+  for (let j = 1; j <= 10; ++j){ //층 반복문
+    for (let i = 10; i >= j; --i){ //별 반복문
+      document.write('*')
+    }
+    document.write('<br>')
+  }
+
+</script>
+
+<script>
+  //구구단 출력 v4
+
+  for(let i=1; i <=9 ;++i){ //행 반복문
+   for(let dan = 2;dan <= 5; ++dan ){ //단 반복문
+     document.write((`${dan} * ${i}= ${dan*i} `));
+     document.write('&nbsp;&nbsp;&nbsp;');
+   }
+    document.write('<br>');
+  }
+
+</script>
+
+<h2> break</h2>
+  <p> 원하는 시점에 반복문이나 코드블록에서
+  벗어나기 위해 사용</p>
+<script>
+  // 1~ 1000까지의 총합을 계산
+  // 단, 총합이 10000을 넘으면 계산을 중단함
+
+  sum = 0;
+  let i = 1; // 초기식을 전역변수처럼 선언
+  for( ; i <= 1000; ++i){
+    if (sum > 10000) {break;}
+    sum += i;
+  }
+  document.write(i, ', ',sum);
+</script>
+
+<h2> continue (스킵)</h2>
+<p> 반복문의 코드실행을 현 지점에서 중단하고
+  반복문의 증감식이나 조건식으로 제어를 이동시킴</p>
+<p>즉, 반복을 일시적으로 건너뛰어 다음 반복으로 넘어감</p>
+
+<script>
+  // 1~ 1000까지의 총합을 계산
+  // 단, 5의 배수나 7의 배수는 계산에서 제외
+
+  sum = 0;
+  for(let i = 1; i <= 1000; ++i){
+    if (i % 5 == 0 || i % 7 == 0) continue;
+    document.write(i, ' ');
+    sum += i;
+  }
+  document.write(sum);
+
+</script>
 
 
 </body>
