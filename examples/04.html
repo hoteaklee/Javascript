@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/04.js"></script>
+<p>25번</p>
+<script>
+    let Lotto = 357 + '';
+    let mykey = '726'; //prompt('복권번호는?(3자리 숫자)')
+
+    result = Lotto_v1(Lotto, mykey);
+
+    document.write(result,'<br>')
+
+</script>
+<!--<script>
+    // #25 - 복권발행 프로그램 v1
+    // Lotto : 657, mykey : 452 => 1개 일치
+    // Lotto : 657, mykey : 524 => 1개 일치
+    // Lotto : 657, mykey : 123 => 0개 일치
+    // Lotto : 657, mykey : 726 => 2개 일치
+    // Lotto : 657, mykey : 626 => 2개 일치
+    let Lotto = '357';
+    let mykey ='726';      //prompt('복권번호는?(3자리 숫자)')
+    let match = 0;
+    let msg = '아쉽지만, 다음기회에!!'
+
+    //숫자 하나씩 비교
+    if (Lotto[0]== mykey[0] || Lotto[0]== mykey[1]
+            || Lotto[0]== mykey[2]) { ++match;}
+
+    if (Lotto[1]== mykey[0] || Lotto[1]== mykey[1]
+        || Lotto[1]== mykey[2]) { ++match;}
+
+    if (Lotto[2]== mykey[0] || Lotto[2]== mykey[1]
+        || Lotto[2]== mykey[2]) { ++match;}
+
+    if (match == 1){ msg = '1개 일치!!';}
+    else if (match == 2){ msg = '2개 일치!!';}
+    else if (match == 3){ msg = '당첨!! 상금 100만원!!';}
+
+    document.write(Lotto[0],Lotto[1],Lotto[2],'<br>');
+    document.write(match,'/', msg,'<br>');
+</script>-->
+
+<p>26번</p>
+<script>
+    let Tax = (salary,marry) =>{
+         if (marry == '결혼'){
+             if (salary < 3000){ return `${salary*0.1}`}
+             else return `${salary*0.25}`
+         } else if (salary < 6000){return `${salary*0.15}`}
+                else return `${salary*0.35}`
+    }
+document.write(Tax(10000,'미혼'))
+</script>
+
+<p>30번</p>
+<script>
+    let CatchNumber = (num1) => {
+        num2 = 123
+        if (num1 > num2){return `${num1}: 추측한 숫자가 큽니다.<br>`}
+        else if (num1 < num2) {return `${num1}: 추측한 숫자가 작습니다.<br>` }
+        else {return `${num1}: 빙고! 숫자를 맞쳤습니다.<br>`}
+    }
+    document.write(CatchNumber(122))
+</script>
+
+<p>31번</p>
+<script>
+    let IndentifyNumber = (num) => {
+        if (num > 0){return `${num}: 정수입니다.<br>`;}
+        else if (num < 0) {return `${num}: 음수입니다.<br>`; }
+        else {return `${num}: 0 입니다<br>`;}
+
+    }
+    document.write(IndentifyNumber(100000));
+</script>
+
+<p>32</p>
+<script>
+    let CheckNumber = (num) => {
+        if (num < 10000){return `${num}: 10000미만입니다.<br>`;}
+        else if (num < 20000) {return `${num}: 10000 ~ 20000입니다.<br>`; }
+        else if (num < 30000) {return `${num}: 20000 ~ 30000입니다.<br>`; }
+        else {return `${num}: 범위 밖 값.<br>`;}
+    }
+    document.write(CheckNumber(30000));
+</script>
+
+
+<p>33</p>
+<script>
+    let CardCheck = (num) =>{
+        cod1 = num[0]
+        cod2 = num[0] + num[1]
+        if (cod2 == 35){
+            if (num = 356317) {return`${num} -NH농협은행 `}
+            else if (num == 356901)
+        }
+    }
+    document.write(CardCheck());
+
+</script>
+
+
+
+
+
+
+
+<p>((년도 - 1)*365 + (년도 - 1)/4 - (년도 - 1)/100 + (년도 - 1)/400 + 1) % 7</p>
+</body>
+</html>
