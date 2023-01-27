@@ -49,55 +49,127 @@
    document.write('💕',sayHello3('Node.js'));
    document.write('🌹',sayHello3('react'));
  </script>
+ <hr>
+ <script>
+     function computLeapYear(year){
+         let result = '평년입니다.';
+         if ((year % 4) == 0 && (year % 100) !== 0
+             || (year % 400) == 0){
+             result = ' - 윤년입니다.<br>';
+     }
+        return `${year}년은 ${result}`;
 
+     }
+     let year = 2023;
+     let result = computLeapYear(year); //함수호출 및 결과받음
+     document.write(result);
+
+ </script>
 <script>
   // 년도를 입력하면 윤년여부를 계산해서 출력
   // 윤년여부를 계산하는 함수 : computLeapYear
 
-  function computLeapYear(year) {
+  function computLeapYear2(year) {
     if ((year % 4) == 0 && (year % 100) !== 0
             || (year % 400) == 0)
            return  year,' - 윤년입니다.<br>';
    else return  year,' - 평년입니다.<br>';
   }
-  document.write(computLeapYear(2023));
+  document.write(computLeapYear2(2023));
 </script>
+ <hr>
+<script>
+    function showStarPyramid(floor) {
+        let result = '';
 
+        for (let j = 1; j <= floor; ++j) { //층 반복문
+            for (let i = 1; i <= j; ++i) { //별 반복문
+                result += `* `;
+            }
+            result += '<br>';
+        }
+        document.write(result);
+    }
+    showStarPyramid(5);
+
+</script>
 <script>
   // 층 수를 입력받아
   // 별 * 피라미드 출력 : showStarPyramid
-  function showStarPyamid(hight){
+  function showStarPyamid2(hight){
   for (let j = 1; j <=hight; ++j) { //층 반복문
     for (let i = 1; i <= j; ++i){ //별 반복문
        document.write(`* `);}
         document.write( '<br>');}
   }
-  showStarPyamid(10);
+  showStarPyamid2(10);
 
 </script>
+ <hr>
+ <script>
+     function showAMPM(time) {
+         let result = '오후 입니다.!!'
+         time = "15:47:40";
+         hour = time[0] + time[1];
+         if (hour < 12) {result = hour, " - 오전 입니다.";}
+         return `${hour}시는 ${result}`;
+     }
+     document.write(showAMPM('09:49:20'));
+ </script>
 
 <script>
   // 시분초를 입력받아
   // 오전, 오후 구분하여 출력 : showAMPM
-function showAMPM(time){
+function showAMPM2(time){
     if (time <'12:00:00') {
         document.write('오전입니다.<br>')    };
     if (time >'12:00:00') {
         document.write('오후입니다.<br>')    };
 }
-showAMPM('15:20:30');
+showAMPM2('15:20:30');
 
+
+ </script>
+ <hr>
+ <script>
+     function computeSungJuk(kor, eng, mat) {
+         let tot = 0, avg = 0, grd = '가'; // 다중변수 선언
+
+         tot = kor+ eng + mat ;
+         avg = tot /3;
+         switch (parseInt(avg / 10 )){
+             case 10:
+             case 9: result = '수';break;
+             case 8: result = '우';break;
+             case 7: result = '미';break;
+             case 6: result = '양';break;
+         }
+         document.write(`총점은 ${tot}, 평균은 ${avg}
+                          학점은 ${grd} 입니다. <br>`);
+     }
+     computeSungJuk(99,98,99);
 
  </script>
 
 <script>
   //국어, 영어, 수학을 입력하면
   // 학점을 출력하는 함수 : computeSungJuk
-  function computeSungJuk(){
+  function computeSungJuk2(kor,eng,mat){
+        let avg = (kor +eng + mat )/3;
+      grd = '가';
 
-
+      if (avg >= 90){
+          grd = '수';
+      } else if(avg >= 80){
+          grd = '우';
+      } else if (avg >= 70){
+          grd = '미';
+      } else if (avg >= 60){
+          grd = '양';
+      }
+      return `국어 : ${kor}, 영어 : ${eng}, 수학 : ${mat}, 학점 : ${grd}`;
   }
-
+document.write(computeSungJuk2(80,80,80));
 
 </script>
 
