@@ -8,14 +8,15 @@
 <script src="../js/04.js"></script>
 <p>25번</p>
 <script>
+    // #25 - 복권발행 프로그램 v1
     let Lotto = 357 + '';
     let mykey = '726'; //prompt('복권번호는?(3자리 숫자)')
 
     result = Lotto_v1(Lotto, mykey);
 
     document.write(result,'<br>')
-
 </script>
+
 <!--<script>
     // #25 - 복권발행 프로그램 v1
     // Lotto : 657, mykey : 452 => 1개 일치
@@ -48,25 +49,21 @@
 
 <p>26번</p>
 <script>
-    let Tax = (salary,marry) =>{
-         if (marry == '결혼'){
-             if (salary < 3000){ return `${salary*0.1}`}
-             else return `${salary*0.25}`
-         } else if (salary < 6000){return `${salary*0.15}`}
-                else return `${salary*0.35}`
-    }
-document.write(Tax(10000,'미혼'))
+   //#26 - 세금 계산
+   let salary = 3500;
+   let isMarried = 'yes';
+
+    document.write(computeTax(isMarried, salary),'<br>');
+
 </script>
 
 <p>30번</p>
 <script>
-    let CatchNumber = (num1) => {
-        num2 = 123
-        if (num1 > num2){return `${num1}: 추측한 숫자가 큽니다.<br>`}
-        else if (num1 < num2) {return `${num1}: 추측한 숫자가 작습니다.<br>` }
-        else {return `${num1}: 빙고! 숫자를 맞쳤습니다.<br>`}
-    }
-    document.write(CatchNumber(122))
+   //#30 스무고개
+   let num2 = 123; //시스템 임의 생성
+
+  // catchNumber(num2);
+
 </script>
 
 <p>31번</p>
@@ -82,33 +79,151 @@ document.write(Tax(10000,'미혼'))
 
 <p>32</p>
 <script>
-    let CheckNumber = (num) => {
+    //32 정수 확인
+
+     result = checkNumber();
+
+
+    //document.write(result, '<br>');
+
+
+
+
+   /* let CheckNumber = (num) => {
         if (num < 10000){return `${num}: 10000미만입니다.<br>`;}
         else if (num < 20000) {return `${num}: 10000 ~ 20000입니다.<br>`; }
         else if (num < 30000) {return `${num}: 20000 ~ 30000입니다.<br>`; }
         else {return `${num}: 범위 밖 값.<br>`;}
     }
-    document.write(CheckNumber(30000));
+    document.write(CheckNumber(30000));*/
 </script>
 
 
 <p>33</p>
 <script>
-    let CardCheck = (num) =>{
-        cod1 = num[0]
-        cod2 = num[0] + num[1]
-        if (cod2 == 35){
-            if (num = 356317) {return`${num} -NH농협은행 `}
-            else if (num == 356901)
-        }
-    }
-    document.write(CardCheck());
+    //33번
+    let cardnum = '686318';
+    result =  cardCheck(cardnum);
+
+    document.write(result,'<br>');
+</script>
+
+<p>35</p>
+<script>
+    //35.
+    let daytime = 'midday';
+
+   result = checkDayTime(daytime);
+    document.write(result,'<br>');
+</script>
+
+<p>48번 </p>
+<script>
+    // #48
+    let account = 25000;
+    let interest = 6;
+
+    result = computeInvestment(account,interest);
+    document.write(result,'<br>');
+</script>
+
+<p>51번</p>
+<script>
+    //#51 v1
+    result = `<pre>
+            Multiplication Table
+      1    2     3     4     5     6     7     8     9
+---------------------------------------------------
+1 |   1    2     3     4     5     6     7     8     9
+2 |   2    4     6     8    10    12    14    16    18
+3 |   3    6     9    12    15    18    21    24    27
+4 |   4    8    12    16    20    24    28    16    18
+5 |   5   10    15    20    25    30    35    16    18
+6 |   6   12    18    24    30    36    42    16    18
+7 |   7   14    21    28    35    42    49    16    18
+8 |   8   16    24    32    40    48    56    16    18
+9 |   9   18    27    36    45    54    63    16    18
+    </pre>`;
+
+    document.write(result);
 
 </script>
 
+<script>
+    //#51 v2
+    result = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Multiplication Table<br>';
+    result += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;3' +
+        '&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;7' +
+        '&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;9<br>';
+    result +='---------------------------------------------------<br>';
 
+    for (let i = 1; i <= 9 ; ++i) {
+        result += `${i}&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    ${i*1} &nbsp;&nbsp;&nbsp;&nbsp;${i*2}&nbsp;&nbsp;&nbsp;&nbsp;
+                    ${i*3} &nbsp;&nbsp;&nbsp;&nbsp;${i*4}&nbsp;&nbsp;&nbsp;&nbsp;${i*5}&nbsp;&nbsp;&nbsp;&nbsp;
+                    ${i*6}&nbsp;&nbsp;&nbsp;&nbsp;${i*7}&nbsp;&nbsp;&nbsp;&nbsp;${i*8}&nbsp;&nbsp;&nbsp;&nbsp;
+                    ${i*9}<br>`;
+    }
 
+    document.write(result);
+</script>
 
+<script>
+    //#51 v3
+    result = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Multiplication Table<br>';
+    result += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;3' +
+        '&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;7' +
+        '&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;9<br>';
+    result +='---------------------------------------------------<br>';
+
+    for (let i = 1; i <= 9 ; ++i) {
+        result += `${i}&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp`;
+        for (let j = 1; j<= 9; ++j){
+                   result += `${i*j} &nbsp;&nbsp;&nbsp;&nbsp;`;
+         }
+        result +='<br>';
+    }
+    document.write(result);
+
+</script>
+
+<script>
+    //#51 v4 - 12행 11열 테이블 만들어보기
+</script>
+
+<p>53 달력</p>
+<script>
+    //#53 - 달력
+    //((년도 - 1)*365 + (년도 - 1)/4 - (년도 - 1)/100 + (년도 - 1)/400 + 1) % 7
+    // 0 일, 1-월 ...., 6 -토
+    // 덧) zeller 의 공식을 이용하면 특정날짜의 요일을 알 수 있음
+    let year = 2019 - 1;
+    let day = parseInt( ((year)*365 + (year )/4 - (year)/100 + (year)/400 + 1) % 7);
+
+    // 평년은 : 365일
+    // 윤 년 : 366일
+    // 따라서, 전년도가 윤년이었다면 day 에 한번더 +1 해야 함.
+    if ((year % 4 == 0 && year % 100 != 0 ) || year % 400 == 0 ) ++day;
+
+    result = `<b>January ${year}</b> <br>`;
+    result += `---------------------------------------------------<br>`;
+    result += ` Sun&nbsp;&nbsp;&nbsp;&nbsp;Mon&nbsp;&nbsp;&nbsp;&nbsp;
+                Tue&nbsp;&nbsp;&nbsp;&nbsp;Wed&nbsp;&nbsp;&nbsp;&nbsp;
+                Thu&nbsp;&nbsp;&nbsp;&nbsp;Fri&nbsp;&nbsp;&nbsp;&nbsp;Sat<br>`;
+
+        // 계산한 요일만큼 공백 출력
+    for (let i = 0; i <= day; ++i){
+        result+= `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`;
+    }
+        //전 단계에서 출력한 요일을 포함해서 다음 요일 출력
+    for (let i =1 + day; i <=31 + day; ++i){
+        result+= `&nbsp;&nbsp;&nbsp;${i - day}&nbsp;&nbsp;&nbsp;`;
+        if (i % 7 == 0){ result += '<br>'; }
+    }
+    document.write(result,'<br>');
+    document.write('요일숫자 : ', day, '<br>');
+
+</script>
 
 
 
