@@ -202,7 +202,7 @@
 <script>
     //1 ~ 45사이의 정수 중
     // 중복하지 않은 6개 숫자 출력
-    let nums45 = new Set();
+    /*let nums45 = new Set();
     nums45.add(parseInt(Math.random() * 45 )+ 1 );
     nums45.add(parseInt(Math.random() * 45 )+ 1 );
     nums45.add(parseInt(Math.random() * 45 )+ 1 );
@@ -211,7 +211,25 @@
     nums45.add(parseInt(Math.random() * 45 )+ 1 );
 
     for (let val2 of nums45)
-        document.write (val2,'  ');
+        document.write (val2,'  ');*/
+
+    // let lotto = [];
+    // for (let i = 1; i <= 6; ++i)
+    //     lotto.push(parseInt(Math.random() * 45)+ 1);
+    //
+    // document.write(lotto);
+
+    let lotto2 = new Set();
+   while (lotto2.size < 6)
+        lotto2.add(parseInt(Math.random() *45)+ 1);
+
+    //document.write(lotto2.size, '/');
+
+    for (let val of lotto2)
+        document.write(val, ' ');
+
+
+
 </script>
 <hr>
 <script>
@@ -226,7 +244,7 @@
     // 성적처리결과를 출력함
 
 
-    let SungJuk = new Object();
+  /*  let SungJuk = new Object();
     SungJuk.name = '지현';
     SungJuk.kor = 35;
     SungJuk.eng = 35;
@@ -248,7 +266,89 @@
         result = `이름 :${SungJuk.name} 국어 : ${SungJuk.kor} 영어 : ${SungJuk.eng}
                     총점 :${SungJuk.sum} 평균 : ${SungJuk.avg}
                     학점 : ${SungJuk.showSungJuk()} <br>`;
+    document.write(result);*/
+
+
+
+
+    let SungJuk = {
+        name : '',
+        kor : 0,
+        eng : 0,
+        mat : 0,
+        tot : 0,
+        avg : 0.0,
+        grd : '',
+        computeSungJuk : function (){
+           this.tot = this.kor +this.eng +this.mat;
+           this.avg = this.tot /3
+            switch (parseInt(this.avg/10 )){
+                case 10:
+                case 9: this.grd ='수';break;
+                case 8: this.grd ='우';break;
+                case 7: this.grd ='미';break;
+                case 6:this.grd ='양';break;
+                default : this.grd ='가';break;
+        } //switch
+        },
+        showSungJuk : function (){
+            return `이름 :${this.name} 국어 : ${this.kor} 영어 : ${this.eng}
+                    총점 :${this.tot} 평균 : ${this.avg}
+                    학점 : ${this.grd()} <br>`; }
+    };
+
+    SungJuk.name = '지현';
+    SungJuk.kor = 35;
+    SungJuk.eng = 35;
+    SungJuk.math = 35;
+
+    SungJuk.computeSungJuk();
+
+    result = SungJuk.showSungJuk();
     document.write(result);
+
+
+
+</script>
+
+<script>
+    let SungJuk2 = {
+        name: '',
+        kor: 0,
+        eng: 0,
+        mat: 0,
+        tot: 0,
+        avg: 0.0,
+        grd: '',
+    };
+
+       let computeSungJuk =  (sj) =>{
+           sj.tot = sj.kor +sj.eng +sj.mat;
+           sj.avg = sj.tot /3 ;
+            switch (parseInt(sj.avg/10 )){
+                case 10:
+                case 9: sj.grd ='수';break;
+                case 8: sj.grd ='우';break;
+                case 7: sj.grd ='미';break;
+                case 6:sj.grd ='양';break;
+                default : sj.grd ='가';break;
+            } //switch
+        };
+        let showSungJuk = (sj) =>{
+            return `이름 :${sj.name} 국어 : ${sj.kor} 영어 : ${sj.eng}
+                    총점 :${sj.tot} 평균 : ${sj.avg}
+                    학점 : ${sj.grd} <br>`;
+    };
+
+    SungJuk2.name = '수지';
+    SungJuk2.kor = 35;
+    SungJuk2.eng = 35;
+    SungJuk2.math = 35;
+
+    computeSungJuk(SungJuk2);
+    document.write(showSungJuk(SungJuk2));
+
+
 </script>
 
 
