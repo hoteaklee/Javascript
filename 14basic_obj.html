@@ -287,7 +287,7 @@
     // 남는 자리는 0으로 채움
     // ex) 20233-2-1 12:8:15 => 2023-02-01 12:08:15
     today = new Date();  document.write(today,'<br>');
-    //datetime = today.getFullYear() + today.getMonth(); + today.getDay()
+    //datetime = today.getFullYear() + today.getMonth(); + today.getDay()    //숫자형이라 모두 더해버림
     //datetime = String(today.getFullYear()).concat('-',today.getMonth(), '-', today.getDay());
     datetime = String(today.getFullYear()).concat('-',
         String( today.getMonth()+1).padStart(2,'0'),
@@ -335,7 +335,21 @@
     // 2  3  4  5  6  7    8  9  2  3  4  5
     // 2  6 12 20 30 42    8 18  6 12 20 30
     // ? == 7
+
+    let checkjumin = (jumin) =>{
+        key = '234567892345'
+        sum = 0;
+        sic = 11-(sum %11);
+        if (jumin.length != 13) return '13자리를 입렵하세요 ';
+         for (let i = 1; i <12; ++i){
+             sum += jumin[i] * key[i];
+         }
+         if (sic != jumin[13])
+
+
+    };
 </script>
+
 
 
 
