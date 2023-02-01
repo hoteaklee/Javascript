@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 JSON</title>
+</head>
+<body>
+  <h1>자바스크립트 JSON</h1>
+  <h2>개요</h2>
+  <p>JavaScript Object Notaion의 약자</p>
+  <p>데이터를 저장하거나 다른 시스템으로 전송시
+    많이 사용하는 데이터 교환 형식</p>
+
+  <p> 즉, 시스템에 생성된 객체를 문자열 형태로
+      변환해서 네트워크를 통해 다른 곳으로 전송할때
+      자주 사용하는데 데이터 형식을 의미</p>
+
+  <p>이때, 전환된 문자열에는 원하는 정보가 있는
+    객체의 속성을 그대로 포함되어야 함</p>
+
+    <p>이전에 사용했던 데이터 교환형식인
+        XML에 비해 적은 코드로 데이터를 정의할 수 있음</p>
+
+    <script>
+        // 아이디/비밀번호로 구성된 user 객체 정의 1 - CSV
+        // userid,passwd
+        // abc123,987xyz
+        // 직렬화/역직렬화등의 추가 작업 필요!
+    </script>
+
+  <script>
+      // 아이디/비밀번호로 구성된 user 객체 정의 2 - XML
+      //<user>
+      //<userid>abc123</userid>
+      //<passwd>987xyz</passwd>
+      //</user>
+
+      //CSV에 비해 직렬화/역직렬화는 편하지만
+      //데이터 정의시 쓸데없는 코드가 많이 필요
+
+  </script>
+
+  <script>
+      // 아이디/비밀번호로 구성된 user 객체 정의 3 - JSON
+      let user = {
+        'userid': 'abc123',
+        'passwd': '987xyz'
+                };
+
+      //CSV, XML에 비해 직렬화/역직렬화가 편하고
+      //데이터 정의시 쓸데없는 코드도 많이  쓰이지 않음
+  </script>
+
+
+<h2>JSON 직렬화/역직렬화</h2>
+<p>stringify (직렬화) : 객체를 문자열로 변환하는 함수,
+        데이터를 서버로 전송 또는 객체 출력시 사용</p>
+<p>parse (역직렬화) : 문자열을 객체로 변환하는 함수,
+        서버가 보내 준  데이터를 클라이언트에서 작업시 사용</p>
+
+<script>
+    //위에서 만든 user 객체 출력하기  1
+    document.write(user,'<br>');
+
+    //위에서 만든 user 객체 출력하기  2
+    let user2 = {
+        'userid': 'abc123',
+        'passwd': '987xyz',
+        toString() {return `${this.userid} ${this.passwd}`; }
+    };
+    document.write(user2,'<br>');
+    //객체으 내용을 출력하기 위해 toString함수 추가
+    // 하지만, 객체의 속성이 추가되면 toString함수 수정 필요!
+
+
+    //위에서 만든 user 객체 출력하기  3 - stringify
+    let json = JSON.stringify(user);
+    document.write(json,'<br>');
+    //stringify함수만으로 객체 내용 출력
+
+</script>
+  <hr>
+
+<script>
+    user = '{"userid" : "abc123", "passwd": "987xyz" }';
+    let obj = JSON.parse(user);
+
+    document.write(obj.userid,'<br>');
+    document.write(obj.passwd,'<br>');
+
+</script>
+  <hr>
+<script>
+    let sjs = `[{ "name": "혜교", "grd": "수" },
+                { "name": "지현", "grd": "미" },
+                { "name": "수지", "grd": "가" }]`; //{ "name": "혜교", "grd": "수" } 한게 일때는 출력되나
+                                                    // 3명이라서 배열에 담아 출력 []
+    obj = JSON.parse(sjs);
+
+    document.write(obj,'<br>');
+
+    //배열객체를 구성하는 개별 요소에 접근하려면
+    //객체명[인데스].속성명 형식으로 사용해야 함
+    document.write(obj[0].name, obj[0].grd,'<br>');
+    document.write(obj[2].name, obj[2].grd,'<br>');
+</script>
+
+  <script>
+      // 다음 배열에서 abc123라는 아이디가 존재하는 확인
+      users = ['abc456','abc789','zyx123','abc123','zyx789'];
+
+       /* if ( users[0] == 'abc123') document.write('1yes!')
+        if ( users[1] == 'abc123') document.write('2yes!')
+        if ( users[2] == 'abc123') document.write('3yes!')
+        if ( users[3] == 'abc123') document.write('4yes!')
+        if ( users[4] == 'abc123') document.write('5yes!')*/
+
+      for (let i = 0; i <= 4; ++i){
+          if ( users[i] == 'abc123') document.write(`${i+1}yes!`);
+      }
+
+
+  </script>
+  <hr>
+
+<script>
+    // 지현 학생의 성적 출력한다면? v1
+   sjs = `[{ "name": "혜교", "grd": "수" },
+                { "name": "지현", "grd": "미" },
+                { "name": "수지", "grd": "가" }]`;
+    obj = JSON.parse(sjs);
+
+
+    // if (obj[0].name =='지현') document.write(obj[0].grd);
+    // if (obj[1].name =='지현') document.write(obj[1].grd);
+    // if (obj[2].name =='지현') document.write(obj[2].grd);
+
+    for (let i= 0; i < obj.length; ++i) {
+        if (obj[i].name == '지현') {
+            document.write(obj[i].name, '-',obj[i].grd);
+            break;
+        }
+    }
+</script>
+  <hr>
+  <script>
+      // 지현 학생의 성적 출력한다면? v2
+      let sj = null;
+      for (let i= 0; i < obj.length; ++i) {
+          if (obj[i].name == '지현') {
+             sj = obj[i];
+              break;
+          }
+      }
+      document.write('지현: ',sj.grd,'<br>');
+  </script>
+
+<script>
+    // 지현 학생의 성적 출력한다면? v3
+    // filter 함수로 객체 탐색시
+    //탐색 대상의 자료형은 객체여야 함!
+    sjs = `{"sjs2" : [{ "name": "혜교", "grd": "수" },
+                { "name": "지현", "grd": "미" },
+                { "name": "수지", "grd": "가" }]}`;
+    obj = JSON.parse(sjs);
+
+    //fiter : 대상 객체의 요소를 순회해 가며
+    // 콜백함수에 매개변수로 넘겨서 처리하는 함수
+    // 결과는 배열형태로 넘겨 받임
+    //filter, map, reduce : 고차함수
+
+    //sj = obj.sjs2.filter(s => (s.name == '지현'));   //추천!!
+    sj = obj.sjs2.filter(function (s){     //콜벡함수 이용
+       // document.write(s.name,'<br>')
+        if (s.name == '지현') return s;
+    });
+
+    document.write('지현: ',sj[0].grd,' v3<br>');  //필터를 쓰면 배열로 저장되서 [0]을 출력
+
+</script>
+
+
+
+</body>
+</html>
