@@ -244,6 +244,7 @@
     <select id="sido" onchange="getGugun()"></select>
     <select id="gugun" onchange="getDong()"></select>
     <select id="dong" onchange="getAddr()"></select>
+    <p id="myaddr"></p>
   </div>
   <script>
     let sidodata = ['서울특별시','경기도','인천광역시','대전광역시','제주자치도'];
@@ -266,19 +267,20 @@
     let gugun =document.querySelector('#gugun');
     let dong =document.querySelector('#dong');
 
-    let addrtitle = (parent,title) => {opt = document.createElement('option');
-      let opt = document.createTextNode('option');
+      let addrTitle = (parent,title) => {
+      let opt = document.createElement('option');
       let txt = document.createTextNode(title);
-      opt.appendChild(txt)
-      parent.appendChild(opt)
+      opt.appendChild(txt);
+      parent.appendChild(opt);
     };
 
       let getSido = () => {
         // <option> - 광역식 - </option>
-        let opt = document.createElement('option');
+        /*let opt = document.createElement('option');
         let txt = document.createTextNode('- 광역시 -');
         opt.appendChild(txt)
-        sido.appendChild(opt)
+        sido.appendChild(opt)*/
+        addrTitle(sido, '- 광역시 -');
 
         // <option> 서울특별시 </option>
         // <option> 경기도 </option>
@@ -288,10 +290,12 @@
           opt.appendChild(txt)
           sido.appendChild(opt)
         }
-         opt = document.createElement('option');
+        /* opt = document.createElement('option');
          txt = document.createTextNode('- 시/군/구 -');
          opt.appendChild(txt)
-         gugun.appendChild(opt)
+         gugun.appendChild(opt)*/
+        addrTitle(gugun, ' - 시/군/구 -');
+
 
          opt = document.createElement('option');
          txt = document.createTextNode('- 읍/면/동 -');
@@ -300,7 +304,7 @@
 
       };
       let getGugun = () => {
-        console.log(sido.value, sido.selectedIndex);
+        //console.log(sido.value, sido.selectedIndex);
 
         //기존 시군구 항목 제거
         while (gugun.firstChild){ // 시군구에 항목이 있다면
@@ -308,28 +312,85 @@
         }
 
         //선택한 시도로 시군구 항목 추가
-        opt = document.createElement('option');
+       /* opt = document.createElement('option');
         txt = document.createTextNode('- 시/군/구 -');
         opt.appendChild(txt)
-        gugun.appendChild(opt)
+        gugun.appendChild(opt)*/
+        addrTitle(gugun, ' - 시/군/구 -');
 
 
         // <option> 선텍한 시의 구군들 </option>
+        if(sido.selectedIndex > 0) {
         for (let val of gugundata[sido.selectedIndex-1]) {
            opt = document.createElement('option');
            txt = document.createTextNode(val);
           opt.appendChild(txt);
           gugun.appendChild(opt);
+        }}
+      };
+      let getDong = () => {
+        console.log(dongdata[sido.selectedIndex-1][gugun.selectedIndex-1]);
+
+        //기존 읍면동 항목 제거
+        /*while (dong.lastChild){ // 읍면동에 항목이 있다면
+          dong.removeChild(gugun.lastChild);
+        }
+        addrTitle(dong, ' - 읍/면/동 -');*/
+        //확인
+
+        // <option> 선텍한 시와 구군의 동들 </option>
+        if (gugun.selectedIndex > 0){
+            for (let val of dongdata[sido.selectedIndex-1][gugun.selectedIndex-1]) {
+              opt = document.createElement('option');
+              txt = document.createTextNode(val);
+              opt.appendChild(txt);
+              dong.appendChild(opt);
+            }
         }
       };
-      let getDong = () => {};
-      let getAddr = () => {};
+
+      let getAddr = () => {
+        if(dong.selectedIndex > 0){
+            let result = `선택한 주소 :
+                          ${sido.value} ${gugun.value} ${dong.value}`;
+            //document.write(result);
+            let myaddr = document.querySelector('#myaddr');
+           //myaddr.innerText =result;  //raw text 형태 출력
+            myaddr.innerHTML =result; // html 처럼 출력 (추천~!!)
+        }
+      };
 
       getSido();
 
+  </script>
 
+  <h2>요소 내용 바꾸기</h2>
+
+  <p>innerHTML : html 요소내에 마크업을 포함한
+    무언가를 삽입/수정/제거할때 사용</p>
+  <p>textContent : 요소의 텍스트 컨텐츠를
+    가져오거나 변경할때 사용</p>
+
+  <div>
+    <span id="msg1">-1-</span>
+    <span id="msg2">-2-</span>
+    <p>게임목록</p>
+    <ul id="games"></ul>
+  </div>
+  <script>
+    let msg1 = document.querySelector('#msg1');
+    let msg2 = document.querySelector('#msg2');
+    let games = document.querySelector('#games');
+
+    msg1.innerHTML = '<p> Hello, World!!</p>';
+    //msg2.innerText = '<p> Hello, World!!</p>';
+    msg2.textContent = '<p> Hello, World!!</p>';
+
+    games.innerHTML = '<li>디아블로</li>';
 
   </script>
+
+
 
 
 
