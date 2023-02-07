@@ -47,8 +47,9 @@
   };
 
   function setSido(sidos) {
+    console.log(sidos.trim());// trim 공백 없앰
     // 응답 데이터를  , 로 구분해서 배열에 저장
-    let cols = sidos.split(',');
+    let cols = sidos.trim().split(',');
 
     // 기본 option 요소 추가
     makeopt(sido,'- 광역시 -');
@@ -105,7 +106,7 @@
 
   // 2. 구군출력
   const setGugun = (guguns) => {
-    let cols= guguns.split(',');
+    let cols= guguns.trim().split(',');
 
     while (gugun.lastChild){
     gugun.removeChild(gugun.lastChild);
@@ -144,7 +145,7 @@
 
   // 3. 동 출력
   const setDong = (dongs) => {
-    let cols= dongs.split(',');
+    let cols= dongs.trim().split(',');
 
     while (dong.lastChild){     //중첩되는거 삭제
       dong.removeChild(dong.lastChild);
@@ -162,7 +163,7 @@
     /*let qry = '?sido=' + sido.value;
     let qry2 = qry + '&&gugun=' + gugun.value;
     let qry3 = qry2 + '&&dong=' +dong.value;*/
-    let qry3 = `?sido=${sido.value}&&gugun=${gugun.value}&&dong=${dong.value}`;
+    //let qry3 = `?sido=${sido.value}&&gugun=${gugun.value}&&dong=${dong.value}`;
 
     if (dong.value == '- 읍/면/동 -') return;
     //if (dong.selectedIndex == 0) return;
