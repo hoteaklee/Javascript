@@ -53,7 +53,7 @@
     // 기본 option 요소 추가
     makeopt(sido,'- 광역시 -');
     makeopt(gugun,'- 시/군/구 -');
-    makeopt(dong,'- 읍/군/구 -');
+    makeopt(dong,'- 읍/면/동 -');
 
   //시도 option 요소 추가
     for (let col of cols){
@@ -64,7 +64,7 @@
 
   // 1. 시도출력
   let getSido = () => {
-    let req = new XMLHttpRequest();
+    /*let req = new XMLHttpRequest();
     req.onreadystatechange = () => {
       if (req.readyState == 4 && req.status == 200){
         //console.log(req.responseText);
@@ -72,7 +72,12 @@
       }
     };
     req.open('get', url1);
-    req.send();
+    req.send();*/
+
+    //ajax promise인 fetch 함수로 변경
+    fetch(url1)
+            .then(response => response.text())
+            .then(text => setSido(text));
   };
 
 
@@ -83,7 +88,7 @@
     //선택한 시도가 '- 광역식 -'라면 함수 실행 중지
     if (sido.selectedIndex == 0) return;
 
-    let req = new XMLHttpRequest();
+    /*let req = new XMLHttpRequest();
     req.onreadystatechange = () => {
       if (req.readyState == 4 && req.status == 200){
         console.log(req.responseText);
@@ -91,7 +96,10 @@
       }
     };
     req.open('get', url2+qry);
-    req.send();
+    req.send();*/
+    fetch(url2+qry)
+            .then(response => response.text())
+            .then(text => setGugun(text));
   });
 
 
@@ -110,28 +118,16 @@
   };
 
 
-  /*getGugun = () => {
-    let req = new XMLHttpRequest();
-    req.onreadystatechange = () => {
-      if (req.readyState == 4 && req.status == 200){
-        //console.log(req.responseText);
-        setGugun(req.responseText);
-      }
-    };
-    req.open('get', url2);
-    req.send();
-  };*/
-
   // 구군을 선택했을때 이벤트 처리
   gugun.addEventListener('change',()=>{
-    let qry = `?sido=${sido.value} &&gugun=${gugun.value} `;
+    let qry = `?sido=${sido.value}&&gugun=${gugun.value}`;
    /* let qry = '?sido=' + sido.value;
     let qry2 = qry + '&&gugun=' + gugun.value*/
 
     //선택한 gugun가 '- 시/군/구  -'라면 함수 실행 중지
     if (gugun.selectedIndex == 0) return;
 
-    let req = new XMLHttpRequest();
+    /*let req = new XMLHttpRequest();
     req.onreadystatechange = () => {
       if (req.readyState == 4 && req.status == 200){
         console.log(req.responseText);
@@ -139,7 +135,10 @@
       }
     };
     req.open('get',url3+qry);
-    req.send();
+    req.send();*/
+    fetch(url3+qry)
+            .then(response => response.text())
+            .then(text => setDong(text));
   });
 
 
@@ -150,40 +149,26 @@
     while (dong.lastChild){     //중첩되는거 삭제
       dong.removeChild(dong.lastChild);
     }
-    makeopt(dong, '- 읍/군/구 -');
+    makeopt(dong, '- 읍/면/동 -');
     for (let col of cols){
       if (col == '') continue; //마지막 빈칸삭제
       makeopt(dong,col);
     }
   };
 
-
-  /*let getDong = () => {
-    let req = new XMLHttpRequest();
-    req.onreadystatechange = () => {
-      if (req.readyState == 4 && req.status == 200){
-        console.log(req.responseText);
-        setDong(req.responseText);
-      }
-    };
-    req.open('get', url3);
-    req.send();
-  };*/
-
+// 읍면동을 선택했을때 이벤트 처리
   dong.addEventListener('change',()=>{
-    let qry = '?sido=' + sido.value;
+    let msg = `${sido.value}${gugun.value}${dong.value}`;
+    /*let qry = '?sido=' + sido.value;
     let qry2 = qry + '&&gugun=' + gugun.value;
-    let qry3 = qry2 + '&&dong=' +dong.value;
+    let qry3 = qry2 + '&&dong=' +dong.value;*/
+    let qry3 = `?sido=${sido.value}&&gugun=${gugun.value}&&dong=${dong.value}`;
 
-    if (dong.selectedIndex == 0) return;
+    if (dong.value == '- 읍/면/동 -') return;
+    //if (dong.selectedIndex == 0) return;
 
-    let req = new XMLHttpRequest();
-    req.onreadystatechange = () => {
-      if (req.readyState == 4 && req.status == 200){
-        console.log(req.responseText);
-      }
-    }
-    req.open('get', url3+qry3)
+
+    alert(msg);
   });
 
 
