@@ -175,9 +175,8 @@
           //(() => {alert('Hello, World!!')})();
 
             (() => {
-                const forms = document.querySelectorAll('.needs-validation');
+                const form = document.querySelector('.needs-validation');
 
-                Array.from(forms).forEach(form => {
                     form.addEventListener('submit', e => {
                         if (!form.checkValidity()){
                         //console.log(form.checkValidity() );
@@ -186,7 +185,6 @@
                         }
                         form.classList.add('was-validated');
                     }, false); // addEventListener
-                } ); //forEach
             })();
 
         </script>
